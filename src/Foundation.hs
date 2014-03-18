@@ -3,6 +3,7 @@ module Foundation where
 import           Yesod
 import           Yesod.Default.Util
 import           Yesod.Form.Jquery
+import           Data.Text
 
 {-
 
@@ -27,6 +28,11 @@ is pretty boring.
 -}
 instance Yesod App
 
+instance RenderMessage App FormMessage where
+    renderMessage _ _ = defaultFormMessage
+
+instance YesodJquery App
+
 {-
 
 Every Yesod application has a set of routes associated with its foundation datatype.
@@ -50,7 +56,6 @@ Please see those modules for more details.
 
 -}
 mkYesodData "App" [parseRoutes|
-/         HomeR     GET
-/markdown MarkdownR PUT
-/fib/#Int FibR      GET
+/                   HomeR           GET
+/youtube/#Text      YoutubeSearchR  GET POST
 |]
