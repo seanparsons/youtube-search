@@ -9,7 +9,7 @@ import qualified Data.ByteString.Lazy as LB
 import Network.HTTP.Conduit
 
 searchURL :: String -> String
-searchURL searchTerm = "https://www.googleapis.com/youtube/v3/search?type=video&fields=items(id(videoId),snippet(title,thumbnails(default)))&part=snippet&key=AIzaSyBmCL2WaqD8xECqVB15JzSBIqKKhx6lTHU&q=" ++ searchTerm
+searchURL searchTerm = "https://www.googleapis.com/youtube/v3/search?type=video&fields=items(id(videoId),snippet(title,thumbnails(default)))&part=snippet&key=<YOURKEYGOESHERE>&q=" ++ searchTerm
 
 data ThumbnailUrl = ThumbnailUrl{urlField :: T.Text} deriving (Show)
 data Thumbnails = Thumbnails{defaultField :: ThumbnailUrl} deriving (Show)
